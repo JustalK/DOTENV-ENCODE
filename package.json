@@ -1,0 +1,32 @@
+{
+  "name": "dotenv-encode",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "secure-env": "dist/es5/src/cli.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./ --out-dir dist/es5/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./LICENSE,./README.md --copy-files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://justalk: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@github.com/justalk/DOTENV-ENCODE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justalk/DOTENV-ENCODE/issues"
+  },
+  "homepage": "https://github.com/justalk/DOTENV-ENCODE#readme"
+}
