@@ -12,8 +12,7 @@
     "start": "dist/es5/src/cli.js",
     "prebuild": "npm run build:delete",
     "lint": "npx eslint --fix src/*.js",
-    "ts": "npx tsc",
-    "build": "babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./LICENSE,./README.md --copy-files",
+    "build": "npx tsc",
     "build:delete": "rimraf dist/es5",
     "prepare": "ts-patch install -s"
   },
@@ -23,12 +22,6 @@
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.5",
-    "@babel/plugin-proposal-class-properties": "^7.16.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.16.5",
-    "@babel/preset-env": "^7.16.5",
-    "@babel/preset-typescript": "^7.16.5",
     "@types/node": "^17.0.5",
     "babel-plugin-module-resolver": "^4.1.0",
     "crypto": "^1.0.1",
