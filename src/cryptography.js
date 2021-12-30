@@ -1,8 +1,8 @@
 module.exports = {
-  encrypt: () => {
-    console.log('encrypt');
+  encrypt: (options) => {
+    console.log(options);
   },
-  decrypt: () => {
-    console.log('decrypt');
+  decrypt: (options) => {
+    console.log(options);
   },
 };
