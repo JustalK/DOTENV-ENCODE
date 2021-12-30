@@ -2,13 +2,14 @@
   "name": "dotenv-encode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/es5/src/cli.js",
   "preferGlobal": true,
   "bin": {
     "secure-env": "dist/es5/src/cli.js"
   },
   "dependencies": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
@@ -17,6 +18,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "dist/es5/src/cli.js",
+    "prebuild": "rimraf dist/es5",
     "build": "babel ./ --out-dir dist/es5/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./LICENSE,./README.md --copy-files"
   },
   "repository": {
