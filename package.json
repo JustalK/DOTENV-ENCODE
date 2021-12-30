@@ -7,21 +7,31 @@
   "bin": {
     "secure-env": "dist/es5/src/cli.js"
   },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "dist/es5/src/cli.js",
+    "prebuild": "npm run build:delete && npm run lint",
+    "lint": "npx eslint --fix src/*.js",
+    "build": "babel ./ --out-dir dist/es5/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./LICENSE,./README.md --copy-files",
+    "build:delete": "rimraf dist/es5"
+  },
   "dependencies": {
     "minimist": "^1.2.5",
+    "module-alias": "^2.2.2",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
-    "crypto": "^1.0.1"
+    "crypto": "^1.0.1",
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "dist/es5/src/cli.js",
-    "prebuild": "rimraf dist/es5",
-    "build": "babel ./ --out-dir dist/es5/ --ignore ./node_modules,./.babelrc,./package.json,./package-lock.json,./npm-debug.log,./LICENSE,./README.md --copy-files"
+  "_moduleAliases": {
+    "@src": "./src"
   },
   "repository": {
     "type": "git",
