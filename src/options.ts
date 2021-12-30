@@ -1,7 +1,7 @@
 import { validExistence, validTypeString, validFile } from '@src/libs/checker';
 import ERRORS from '@src/constants/errors';
-import { Options } from '@src/interfaces/options';
-import { Argv } from '@src/interfaces/argv';
+import { Options } from '@src/interfaces/options.d';
+import { Argv } from '@src/interfaces/argv.d';
 
 /**
  * Get the options from the args passed in the command
@@ -17,7 +17,7 @@ export const readOptions = (argv: Argv): Options => {
   return {
     inputFile, outputFile, secret, isDecrypt,
   };
-}
+};
 
 /**
  * Check if mandatory options has been given in the command
@@ -27,7 +27,7 @@ export const readOptions = (argv: Argv): Options => {
 export const checkExistenceMandatoryOptions = ({ inputFile, secret }: Options) => {
   validExistence(inputFile, ERRORS.NO_INPUT_FILE);
   validExistence(secret, ERRORS.NO_SECRET_KEY);
-}
+};
 
 /**
  * Check the type of parameters passed to the program
@@ -39,4 +39,4 @@ export const checkTypeOptions = ({ inputFile, outputFile, secret }: Options) => 
   validFile(inputFile, ERRORS.WRONG_INPUT_FILE);
   validTypeString(secret, ERRORS.WRONG_SECRET_KEY);
   validTypeString(outputFile, ERRORS.WRONG_OUTPUT_FILE);
-}
+};
