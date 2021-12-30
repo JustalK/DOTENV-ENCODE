@@ -1,4 +1,5 @@
 import { validExistence, validTypeString, validFile } from '@src/libs/checker';
+import colors from 'colors/safe';
 import ERRORS from '@src/constants/errors';
 import { Options } from '@src/interfaces/options.d';
 import { Argv } from '@src/interfaces/argv.d';
@@ -39,4 +40,20 @@ export const checkTypeOptions = ({ inputFile, outputFile, secret }: Options) => 
   validFile(inputFile, ERRORS.WRONG_INPUT_FILE);
   validTypeString(secret, ERRORS.WRONG_SECRET_KEY);
   validTypeString(outputFile, ERRORS.WRONG_OUTPUT_FILE);
+};
+
+/**
+ * Print the parameters of the encryption/decryption in the terminal
+ * @param {string} inputFile Path to the input File
+ * @param {string} outputFile Path to the output File
+ * @param {string} secret Password of the encryption
+ * @param {boolean} isDecrypt True if the process is a decryption, or else false
+ * */
+export const printOptions = ({
+  inputFile, outputFile, secret, isDecrypt,
+}: Options) => {
+  console.log(colors.cyan('Current process: '), isDecrypt ? 'Decryption' : 'Encryption');
+  console.log(colors.cyan('inputFile:       '), inputFile);
+  console.log(colors.cyan('outputFile:      '), outputFile);
+  console.log(colors.cyan('Secret:          '), secret);
 };

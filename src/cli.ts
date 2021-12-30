@@ -2,10 +2,10 @@
 
 import { readOptions } from '@src/options';
 import { main } from '@src/main';
+import readline from 'readline';
 
 require('module-alias/register');
 const argv = require('minimist')(process.argv.slice(2));
-const readline = require('readline');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -19,7 +19,6 @@ if (options.secret) {
   main(options);
 } else {
   rl.question('Secret key:', (secret: string) => {
-    console.log(secret);
     options.secret = secret;
     main(options);
   });
