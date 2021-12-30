@@ -1,7 +1,7 @@
 import { Options } from '@src/interfaces/options.d';
 import { checkTypeOptions, checkExistenceMandatoryOptions, printOptions } from '@src/options';
 import { decrypt, encrypt } from '@src/cryptography';
-import colors from 'colors/safe';
+import { logger } from '@src/libs/logger';
 
 export const main = async (options: Options) => {
   checkExistenceMandatoryOptions(options);
@@ -10,7 +10,7 @@ export const main = async (options: Options) => {
   // Decrypt or Encrypt the files
   const fc = options.isDecrypt ? decrypt : encrypt;
   await fc(options);
-  console.log(colors.green('\nOperation completed !\n'));
+  logger.info('\nOperation completed !\n');
   process.exit(0);
 };
 
