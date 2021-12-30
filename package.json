@@ -10,8 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "dist/es5/src/cli.js",
-    "run:encode": "node ./dist/cli.js ./env/prod.env -o ./env_encrypted/prod.env -s mySecretKey",
-    "run:decode": "node ./dist/cli.js ./env_encrypted/prod.env -o ./env/prod.env -s mySecretKey -d",
+    "run:encode": "node ./dist/cli.js ./env/prod.env -o ./env_encrypted/prod.env -s mySqsdqsdecretKey",
+    "run:decode": "node ./dist/cli.js ./env_encrypted/prod.env -o ./env/prod.env -s mySqsdqsdecretKey -d",
     "lint": "npx eslint --fix src/*.ts",
     "prebuild": "npm run build:delete && npm run lint",
     "build": "npx tsc",
@@ -19,12 +19,15 @@
     "prepare": "ts-patch install -s"
   },
   "dependencies": {
+    "colors": "^1.4.0",
     "minimist": "^1.2.5",
     "module-alias": "^2.2.2",
+    "prompt": "^1.2.0",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.5",
+    "@types/prompt": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "babel-plugin-module-resolver": "^4.1.0",

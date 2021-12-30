@@ -11,7 +11,7 @@ import * as fs from 'fs';
  * @param inputFile The path of the input file
  * @param outputFile The path of the output file
  * */
-export const encrypt = ({ secret, inputFile, outputFile }: Options) => {
+export const encrypt = async ({ secret, inputFile, outputFile }: Options) => new Promise((resolve) => {
   try {
     const secretKey = crypto.createHash(ALGORITHM_SHA_256).update(String(secret)).digest();
     const iv = crypto.randomBytes(IV_LENGTH);
@@ -19,10 +19,12 @@ export const encrypt = ({ secret, inputFile, outputFile }: Options) => {
     const output = fs.createWriteStream(outputFile);
     output.write(iv);
     fs.createReadStream(inputFile).pipe(cipher).pipe(output);
+
+    output.on('finish', () => resolve(true));
   } catch (error) {
     console.log(error);
   }
-};
+});
 
 /**
  * Decrypt the inputFile with the secret using the aes256 algo into the outPutFile
@@ -30,7 +32,7 @@ export const encrypt = ({ secret, inputFile, outputFile }: Options) => {
  * @param inputFile The path of the input file
  * @param outputFile The path of the output file
  * */
-export const decrypt = ({ secret, inputFile, outputFile }: Options) => {
+export const decrypt = async ({ secret, inputFile, outputFile }: Options) => new Promise((resolve) => {
   try {
     const fileBuffer = fs.readFileSync(inputFile);
     const iv = fileBuffer.slice(0, IV_LENGTH);
@@ -40,7 +42,10 @@ export const decrypt = ({ secret, inputFile, outputFile }: Options) => {
     const decrypted = Buffer.concat([decipher.update(ciphertext), decipher.final()]);
     const output = fs.createWriteStream(outputFile);
     output.write(decrypted.toString(FORMAT_UTF8));
+    output.end();
+
+    output.on('finish', () => resolve(true));
   } catch (error) {
     console.log(error);
   }
-};
+});
