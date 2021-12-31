@@ -1,4 +1,4 @@
-const { validString, validFile } = require('@src/libs/checker');
+const { validExistence, validTypeString, validFile } = require('@src/libs/checker');
 const ERRORS = require('@src/constants/errors');
 
 module.exports = {
@@ -18,14 +18,23 @@ module.exports = {
     };
   },
   /**
-   * Check the options passed to the program
+   * Check if mandatory options has been given in the command
+   * @param {string} inputFile Path to the input File
+   * @param {string} secret Password of the encryption
+   * */
+  checkExistenceMandatoryOptions: ({ inputFile, secret }) => {
+    validExistence(inputFile, ERRORS.NO_INPUT_FILE);
+    validExistence(secret, ERRORS.NO_SECRET_KEY);
+  },
+  /**
+   * Check the type of parameters passed to the program
    * @param {string} inputFile Path to the input File
    * @param {string} outputFile Path to the output File
    * @param {string} secret Password of the encryption
    * */
-  checkOptions: ({ inputFile, outputFile, secret }) => {
-    validFile(inputFile, ERRORS.NO_INPUT_FILE);
-    validString(outputFile, ERRORS.NO_OUTPUT_FILE);
-    validString(secret, ERRORS.NO_SECRET_KEY);
+  checkTypeOptions: ({ inputFile, outputFile, secret }) => {
+    validFile(inputFile, ERRORS.WRONG_INPUT_FILE);
+    validTypeString(secret, ERRORS.WRONG_SECRET_KEY);
+    validTypeString(outputFile, ERRORS.WRONG_OUTPUT_FILE);
   },
 };
