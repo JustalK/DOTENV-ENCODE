@@ -8,7 +8,7 @@
     "secure-env": "dist/cli.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "export NODE_ENV=test && nyc --check-coverage ava --serial --verbose --timeout=1m",
     "start": "dist/es5/src/cli.js",
     "run:encode": "node ./dist/cli.js ./env/prod.env -o ./env_encrypted/prod.env -s mySqsdqsdecretKey",
     "run:decode": "node ./dist/cli.js ./env_encrypted/prod.env -o ./env/prod.env -s mySqsdqsdecretKey -d",
@@ -31,12 +31,15 @@
     "@types/prompt": "^1.1.2",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
+    "ava": "^3.15.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "crypto": "^1.0.1",
     "eslint": "^8.5.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.25.3",
+    "nyc": "^15.1.0",
+    "ts-node": "^10.4.0",
     "ts-patch": "^2.0.1",
     "typescript": "^4.5.4",
     "typescript-transform-paths": "^3.3.1"
@@ -52,6 +55,19 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/justalk/DOTENV-ENCODE/issues"
+  },
+  "ava": {
+    "extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		],
+    "files": [
+      "test/**/*",
+      "!test/libs",
+      "!test/files"
+    ]
   },
   "homepage": "https://github.com/justalk/DOTENV-ENCODE#readme"
 }
