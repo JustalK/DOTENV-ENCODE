@@ -1,3 +1,7 @@
+/**
+ * Constants string for the errors
+ */
+
 export const NO_SECRET_KEY: string = 'No secret (--secret or -s) provided.';
 export const NO_INPUT_FILE: string = 'No inputFile provided.';
 

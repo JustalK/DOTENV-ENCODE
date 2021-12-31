@@ -1,3 +1,8 @@
+/**
+ * The module for encrypting and decrypting a file
+ * @module cryptography
+ */
+
 import { Options } from '@src/interfaces/options.d';
 import {
   IV_LENGTH, ALGORITHM_AES_256, ALGORITHM_SHA_256, FORMAT_UTF8,

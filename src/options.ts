@@ -1,3 +1,8 @@
+/**
+ * The module for managing the options/parameters
+ * @module options
+ */
+
 import { validExistence, validTypeString, validFile } from '@src/libs/checker';
 import { logger } from '@src/libs/logger';
 import ERRORS from '@src/constants/errors';

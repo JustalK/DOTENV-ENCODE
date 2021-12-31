@@ -1,5 +1,10 @@
 #! /usr/bin/env node
 
+/**
+ * The module for managing the cli of the program
+ * @module cli
+ */
+
 import { readOptions } from '@src/options';
 import { main } from '@src/main';
 import readline from 'readline';

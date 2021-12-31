@@ -1,3 +1,8 @@
+/**
+ * The module for managing the logger
+ * @module cryptography
+ */
+
 import winston from 'winston';
 import colors from 'colors/safe';
 
