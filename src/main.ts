@@ -10,7 +10,7 @@ export const main = async (options: Options) => {
   // Decrypt or Encrypt the files
   const fc = options.isDecrypt ? decrypt : encrypt;
   await fc(options);
-  logger.info('\nOperation completed !\n');
+  logger.info('\nOperation completed !\n', { color: 'green' });
   process.exit(0);
 };
 

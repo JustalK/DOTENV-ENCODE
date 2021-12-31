@@ -2,6 +2,7 @@ import { Options } from '@src/interfaces/options.d';
 import {
   IV_LENGTH, ALGORITHM_AES_256, ALGORITHM_SHA_256, FORMAT_UTF8,
 } from '@src/constants/cryptography';
+import { logger } from '@src/libs/logger';
 import * as crypto from 'crypto';
 import * as fs from 'fs';
 
@@ -22,7 +23,7 @@ export const encrypt = async ({ secret, inputFile, outputFile }: Options) => new
 
     output.on('finish', () => resolve(true));
   } catch (error) {
-    console.log(error);
+    logger.error(`Error:\n ${error}`, { color: 'red' });
   }
 });
 
@@ -46,6 +47,6 @@ export const decrypt = async ({ secret, inputFile, outputFile }: Options) => new
 
     output.on('finish', () => resolve(true));
   } catch (error) {
-    console.log(error);
+    logger.error(`Error:\n ${error}`, { color: 'red' });
   }
 });

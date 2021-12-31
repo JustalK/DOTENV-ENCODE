@@ -1,5 +1,5 @@
 import { validExistence, validTypeString, validFile } from '@src/libs/checker';
-import colors from 'colors/safe';
+import { logger } from '@src/libs/logger';
 import ERRORS from '@src/constants/errors';
 import { Options } from '@src/interfaces/options.d';
 import { Argv } from '@src/interfaces/argv.d';
@@ -52,8 +52,8 @@ export const checkTypeOptions = ({ inputFile, outputFile, secret }: Options) => 
 export const printOptions = ({
   inputFile, outputFile, secret, isDecrypt,
 }: Options) => {
-  console.log(colors.cyan('Current process: '), isDecrypt ? 'Decryption' : 'Encryption');
-  console.log(colors.cyan('inputFile:       '), inputFile);
-  console.log(colors.cyan('outputFile:      '), outputFile);
-  console.log(colors.cyan('Secret:          '), secret);
+  logger.info(`Current process: ${isDecrypt ? 'Decryption' : 'Encryption'}`, { color: 'cyan' });
+  logger.info(`inputFile: ${inputFile}`, { color: 'cyan' });
+  logger.info(`outputFile: ${outputFile}`, { color: 'cyan' });
+  logger.info(`Secret: ${secret}`, { color: 'cyan' });
 };

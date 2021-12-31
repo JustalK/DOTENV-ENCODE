@@ -12,7 +12,6 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-// Read and valid the options
 const options = readOptions(argv);
 
 if (options.secret) {
