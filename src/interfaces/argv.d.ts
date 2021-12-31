@@ -5,19 +5,19 @@ export interface Argv {
   /**
    * The long argument indicating the path of the output file
    */
-  outputFile: string;
+  outputFile?: string;
   /**
    * The short argument indicating the path of the output file
    */
-  o: string;
+  o?: string;
   /**
    * The long argument indicating the secret of the encoding
    */
-  secret: string;
+  secret?: string;
   /**
    * The short argument indicating the secret of the encoding
    */
-  s: string;
+  s?: string;
   /**
    * The long argument indicating the decryption process
    */

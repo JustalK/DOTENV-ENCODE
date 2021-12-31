@@ -61,6 +61,7 @@
 			"ts"
 		],
 		"require": [
+      "module-alias/register",
 			"ts-node/register"
 		],
     "files": [
