@@ -20,10 +20,11 @@
           "map": [
             ["@src", "./src"]
           ],
-          "extensions": [".ts"]
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
         }
       }
     },
     "rules": {
+      "max-len": "off"
     }
 }
