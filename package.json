@@ -10,8 +10,8 @@
   "scripts": {
     "test": "export NODE_ENV=test && nyc --check-coverage ava --serial --verbose --timeout=1m",
     "start": "dist/es5/src/cli.js",
-    "run:encode": "node ./dist/cli.js ./env/prod.env -o ./env_encrypted/prod.env -s mySqsdqsdecretKey",
-    "run:decode": "node ./dist/cli.js ./env_encrypted/prod.env -o ./env/prod.env -s mySqsdqsdecretKey -d",
+    "run:encode": "node ./dist/cli.js ./test/files/env/prod.env -o ./test/files/env_encrypted/prod.env -s MySecretKey",
+    "run:decode": "node ./dist/cli.js ./test/files/env_encrypted/prod.env -o ./test/files/env/prod.env -s MySecretKey -d",
     "lint": "npx eslint --fix src/**/*.ts",
     "prebuild": "npm run build:delete && npm run lint",
     "build": "npx tsc",
