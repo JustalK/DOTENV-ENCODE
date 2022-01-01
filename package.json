@@ -5,7 +5,7 @@
   "main": "dist/cli.js",
   "preferGlobal": true,
   "bin": {
-    "secure-env": "dist/cli.js"
+    "dotenv-encode": "dist/cli.js"
   },
   "scripts": {
     "test": "export NODE_ENV=test && nyc --check-coverage ava --serial --verbose --timeout=1m",
