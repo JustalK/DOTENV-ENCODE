@@ -12,7 +12,7 @@ import * as fs from 'fs';
  * */
 export const validExistence = (o: string, errorMessage: string) => {
   if (!o) {
-    throw errorMessage;
+    throw new Error(errorMessage);
   }
 };
 
@@ -23,7 +23,7 @@ export const validExistence = (o: string, errorMessage: string) => {
  * */
 export const validTypeString = (o: string, errorMessage: string) => {
   if (typeof (o) !== 'string') {
-    throw errorMessage;
+    throw new Error(errorMessage);
   }
 };
 
@@ -34,6 +34,6 @@ export const validTypeString = (o: string, errorMessage: string) => {
  * */
 export const validFile = (f: string, errorMessage: string) => {
   if (!fs.existsSync(f)) {
-    throw errorMessage;
+    throw new Error(errorMessage);
   }
 };

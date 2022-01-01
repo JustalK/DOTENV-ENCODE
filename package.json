@@ -58,12 +58,12 @@
   },
   "ava": {
     "extensions": [
-			"ts"
-		],
-		"require": [
+      "ts"
+    ],
+    "require": [
       "module-alias/register",
-			"ts-node/register"
-		],
+      "ts-node/register"
+    ],
     "files": [
       "test/**/*",
       "!test/libs",
