@@ -37,3 +37,10 @@ export const validFile = (f: string, errorMessage: string) => {
     throw new Error(errorMessage);
   }
 };
+
+/**
+ * Check if a path is a folder or file
+ * @param {string} f Check if the file f exists
+ * @return {boolean} True if the path is a directory or else false
+ * */
+export const isDirectory = (f: string): boolean => fs.lstatSync(f).isDirectory();

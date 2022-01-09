@@ -41,7 +41,7 @@ export const checkExistenceMandatoryOptions = ({ inputFile, secret }: Options) =
  * @param {string} outputFile Path to the output File
  * @param {string} secret Password of the encryption
  * */
-export const checkTypeOptions = ({ inputFile, outputFile, secret }: Options) => {
+export const checkTypeOptions = async ({ inputFile, outputFile, secret }: Options) => {
   validFile(inputFile, ERRORS.WRONG_INPUT_FILE);
   validTypeString(secret, ERRORS.WRONG_SECRET_KEY);
   validTypeString(outputFile, ERRORS.WRONG_OUTPUT_FILE);
