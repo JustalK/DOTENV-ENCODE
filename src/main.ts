@@ -26,9 +26,8 @@ export const main = async (options: Options) => {
   if (isDirectory(options.inputFile)) {
 
     // Create a folder if it's does not exist
-    const folder = options.isDecrypt ? options.inputFile : options.outputFile;
-    if (!fs.existsSync(folder)) {
-      fs.mkdirSync(folder)
+    if (!fs.existsSync(options.outputFile)) {
+      fs.mkdirSync(options.outputFile)
     }
 
     // Execute the encryption for every files inside the folder
