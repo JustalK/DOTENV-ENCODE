@@ -1,6 +1,6 @@
 /**
  * The module for managing the logger
- * @module cryptography
+ * @module logger
  */
 
 import winston from 'winston';
